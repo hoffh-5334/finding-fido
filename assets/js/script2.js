@@ -2,6 +2,7 @@ const key = "VWy53BSbhb6aR1M1ke08svAEF1FEdVeANJN9WnQRcFKg3hO0qU";
 const secret = "ZktvYuiXVzJmlliMIS5MRtEw27rAmvPtpNFbxrh1";
 
 // Update token
+const getData = function() {
 fetch("https://api.petfinder.com/v2/oauth2/token", {
   method: "POST",
   body:
@@ -29,6 +30,7 @@ fetch("https://api.petfinder.com/v2/oauth2/token", {
         return res.json();
       })
       .then((data) => {
-        console.log(data);
+        return data
       });
   });
+};
