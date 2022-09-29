@@ -23,11 +23,11 @@
         </div>
       </div>
         
-    <form>
+    <form id="search-form">
         <div class="col-12">
           <h3>Where are you located?</h3>
-          <label for="validationServer05">Please enter your zip code</label>
-          <input type="text" class="form-control" id="validationServer05" aria-describedby="validationServer05Feedback" required>
+          <label >Please enter your zip code</label>
+          <input type="text" class="form-control" id="zip-code" required>
           <!-- <div id="validationServer05Feedback" > -->
 
             <h3>What are you looking for in your future dog?</h3>
@@ -46,12 +46,12 @@
 
               <div class="col-4">
                 <label for="validationDefault04">Size</label>
-                <select class="custom-select" id="">
+                <select class="custom-select" id="size-input">
                   <option selected disabled value="">Choose...</option>
-                  <option>small</option>
-                  <option>medium</option>
-                  <option>large</option>
-                  <option>xlarge</option>
+                  <option value="small">small</option>
+                  <option value="medium">medium</option>
+                  <option value="large">large</option>
+                  <option value="xlarge">xlarge</option>
                 </select>
               </div>
 
@@ -69,10 +69,10 @@
             <div class="row">
               <div class="col-4">
                 <label for="validationDefault04">Good with other dogs</label>
-                <select class="custom-select" id="">
+                <select class="custom-select" id="good-with-dogs">
                   <option selected disabled value="">Choose...</option>
-                  <option>yes</option>
-                  <option>no preference</option>
+                  <option value="true">yes</option>
+                  <option value="false" >no preference</option>
                 </select>
               </div>
             

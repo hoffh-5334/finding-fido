@@ -3,8 +3,16 @@ const secret = "ZktvYuiXVzJmlliMIS5MRtEw27rAmvPtpNFbxrh1";
 
 const searchResults = [];
 
+let urlParams;
+
+// get url params
+const getUrlParams = function(){
+  urlParams = window.location.search
+}
+
+
 // Update token and fetch search results
-const getData = function() {
+const getData = function(urlParams) {
 fetch("https://api.petfinder.com/v2/oauth2/token", {
   method: "POST",
   body:
@@ -21,7 +29,8 @@ fetch("https://api.petfinder.com/v2/oauth2/token", {
   })
   .then((data) => {
     const token = data.access_token;
-    fetch("https://api.petfinder.com/v2/animals?type=dog&page=1", {
+    console.log(urlParams)
+    fetch(`https://api.petfinder.com/v2/animals${urlParams}&type=dog&page=1&`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -34,6 +43,7 @@ fetch("https://api.petfinder.com/v2/oauth2/token", {
         data.animals.forEach(function(item){
           searchResults.push(item)
         })
+        console.log(data)
         updateCard()
         return data
       });
@@ -67,7 +77,8 @@ const updateCard = function(){
 
 // Run at start
 const init = function(){
-  getData()
+  getUrlParams()
+  getData(urlParams)
 }
 
 init()
