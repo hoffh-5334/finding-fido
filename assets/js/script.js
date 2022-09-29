@@ -1,8 +1,13 @@
 // Form input variables
 // const urlParams = []
 let zipCode;
-let goodWithOtherDogs;
+let age;
 let size;
+let gender;
+let goodWithOtherDogs;
+let goodWithCats;
+let goodWithChildren;
+
 
 // Create new URL
 const newUrl = function(){
@@ -15,8 +20,13 @@ $("#search-form").on("submit", function(e){
     e.preventDefault()
     console.log("search")
     zipCode = $("#zip-code").val();
+    age = $("#age-input").val();
+    size = $("#size-input").val();
+    gender = $("#gender-input").val();
     goodWithOtherDogs = $("#good-with-dogs").val()
-    size = $("#size-input").val()
+    goodWithCats = $("#good-with-cats").val()
+    goodWithChildren = $("#good-with-children").val()
+   
     newUrl()
 
 })
