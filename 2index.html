@@ -11,9 +11,82 @@
       integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/2style.css" />
 </head>
+
 <body>
+    <form class="container-fluid">
+        <div class="row">
+            <div class="col-2">
+                <div class="wrapper">
+                <!-- Sidebar -->
+                    <nav id="sidebar">
+                        <ul class="list-unstyled components">
+                <!-- <li class="active"> -->
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Filter</a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li>
+                            <label>Please enter your zip code.</label>
+                            <input type="text" class="form-control" id="zip-code" required>
+                                     <!-- Age -->
+                             <label for="validationDefault04">Age</label>
+                                 <select class="custom-select" id="age-input">
+                                        <option selected disabled value="">Choose...</option>
+                                        <option value = "baby">puppy</option>
+                                        <option value = "young">young</option>
+                                        <option value = "adult">adult</option>
+                                        <option value = "senior">senior</option>
+                                 </select>
+                                    <label for="validationDefault04">Size</label>
+                                 <select class="custom-select" id="size-input">
+                                        <option selected disabled value="">Choose...</option>
+                                        <option value="small">small</option>
+                                        <option value="medium">medium</option>
+                                        <option value="large">large</option>
+                                        <option value="xlarge">xlarge</option>
+                                 </select>
+                                    <label for="validationDefault04">Gender</label>
+                                 <select class="custom-select" id="gender-input">
+                                        <option selected disabled value="">Choose...</option>
+                                        <option value = "male">male</option>
+                                        <option value ="female">female</option>
+                                        <option value = "unknown">no preference</option>
+                                 </select>
+                                    <label for="validationDefault04">Good with other dogs</label>
+                                 <select class="custom-select" id="good-with-dogs">
+                                        <option selected disabled value="">Choose...</option>
+                                        <option value="true">yes</option>
+                                        <option value="false" >no preference</option>
+                                 </select>
+                                    <label for="validationDefault04">Good with cats</label>
+                                 <select class="custom-select" id="good-with-cats">
+                                        <option selected disabled value="">Choose...</option>
+                                        <option value = "true">yes</option>
+                                        <option value = "false">no preference</option>
+                                 </select>
+                                    <label for="validationDefault04">Good with children</label>
+                                 <select class="custom-select" id="good-with-children">
+                                        <option selected disabled value="">Choose...</option>
+                                        <option value = "true">yes</option>
+                                        <option value = "false">no preference</option>
+                                 </select>
+                                    <!-- Search Button -->
+                                    <button class="btn btn-danger btn-lg" id="find-fido-button" type="submit">Find Fido!</button>
+                                </div>
+                                </div>
+                        </form>
+                        </li>
+                    </ul>
+                </li>
+        </nav>
+    
+        <!-- Page Content -->
+        <div id="content">
+            <!-- We'll fill this with dummy content -->
+        </div>
+    
+    </div>       
+    
 
   <!-- <div class="container-fluid">
     <div class = "row">
