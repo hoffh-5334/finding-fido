@@ -1,3 +1,46 @@
+/* Global */
+header, body {
+  font-family: Rubik;
+}
+
+/* Header Section */
 header {
-  background-color: blue;
+  padding: 20px;
+  text-align: center;
+}
+
+#finding-fido-logo {
+  max-width: 35%;
+  padding-bottom: 15px;
+}
+
+/* Form Section */
+form {
+  background-color: #92E0E4;
+  border-radius: 10px;
+  padding: 30px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#zip-code {
+  width: 20%;
+  margin-left: 40%;
+}
+
+#future-dog-header {
+  padding-top: 40px;
+}
+
+#good-with-section {
+  padding-top: 10px;
+}
+
+label {
+  font-weight: bold;
+}
+
+#find-fido-button {
+  margin-left: 43%;
+  margin-top: 5%;
 }
