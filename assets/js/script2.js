@@ -69,6 +69,8 @@ const updateCard = function(){
     const contactInfoDivP = $("<div class=''>");
     const emailEl = $("<a class='card-link'>").text(`Email: ${item.contact.email}`).attr("href", `mailto:${item.contact.email}`)
     const phoneEl = $("<a class='card-link'>").text(item.contact.phone).attr("href", item.contact.phone)
+    const favButton =$("<button class= 'fav'>").text("favorite")
+    favButton.click((event)=>saveFav(event, item))
 
     // Append Card Components
     $("#card-wrapper").append(card);
@@ -90,7 +92,8 @@ const updateCard = function(){
     cardBodyContact.append(contactInfoDivE);
     cardBodyContact.append(contactInfoDivP);
     contactInfoDivE.append(emailEl);
-    contactInfoDivP.append(phoneEl); 
+    contactInfoDivP.append(phoneEl);
+    contactInfoDivP.append(favButton); 
 
     
     
@@ -108,10 +111,39 @@ const updateCard = function(){
     // $("#contact-info").append($("<a class='card-link'>").text(item.contact.phone).attr("href", item.contact.phone))
   })
 }
+const saveFav = function (event, item){
+  event.preventDefault()
+  const favorites = JSON.parse(localStorage.getItem("favorites")) || []
+  favorites.push({
+   name: item.name,
+   image: item.photos[0].medium, 
+  })
+localStorage.setItem("favorites",JSON.stringify(favorites))
+  displayFav()
+  console.log (item)
 
+}
 // Run at start
 const init = function(){
   getData(urlParams)
 }
 
+const displayFav = function(){
+  const favorites = JSON.parse(localStorage.getItem("favorites")) || []
+  console.log(favorites)
+  const cards = $(".cards")
+  cards.empty()
+  favorites.forEach(dog=>{
+    console.log(dog.image)
+    const card = $("<div class='col-3 card'>");
+    const dogName = $("<h5>").text(dog.name);
+    const dogImage = $("<img>").attr("src", dog.image);
+    console.log(dogImage)
+    card.append(dogName)
+    card.append(dogImage)
+    cards.append(card)
+  }) 
+}
+
 init()
+displayFav()
