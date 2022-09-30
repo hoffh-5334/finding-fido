@@ -52,3 +52,7 @@ img {
 .list-group-item {
   background-color: #92E0E4;
 }
+
+.footer {
+    background-color: aqua;
+    padding-bottom: 200px;
