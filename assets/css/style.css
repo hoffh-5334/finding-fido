@@ -44,3 +44,41 @@ label {
   margin-left: 43%;
   margin-top: 5%;
 }
+
+/* Search Results Cards */
+
+.card {
+  background-color: #92E0E4;
+  margin: 10px;
+}
+
+.container {
+  padding: 10px;
+}
+
+#card-container {
+  padding: 20px;
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+.card-link {
+  font-size: small;
+  flex-direction: column;
+}
+
+.card-body {
+  font-family: Rubik;
+  padding: 5px;
+}
+
+.card-img-top {
+  padding-top: 10px;
+}
+
+.list-group-item {
+  background-color: #92E0E4;
+  flex: content;
+}
