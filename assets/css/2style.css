@@ -1,6 +1,15 @@
+/* Sidebar Search Area */
+#sidebar {
+  padding: 20px
+}
+
+img {
+  max-width: 90%;
+}
+
 #find-fido-button {
-    margin-left: 43%;
-    margin-top: 5%;
+    margin-left: 15%;
+    margin-top: 10%;
   }
 
   /* Search Results Cards */
@@ -13,8 +22,13 @@
   padding: 10px;
 }
 
+#card-wrapper {
+  
+}
+
 #card-container {
-  padding: 20px;
+  padding: 40px;
+  margin: 5px;
 }
 
 .card-title {
@@ -37,5 +51,4 @@
 
 .list-group-item {
   background-color: #92E0E4;
-  flex: content;
 }
