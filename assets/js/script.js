@@ -1,5 +1,4 @@
 // Form input variables
-// const urlParams = []
 let zipCode;
 let age;
 let size;
@@ -11,10 +10,11 @@ let goodWithChildren;
 
 // Create new URL
 const newUrl = function(){
-    window.open(`http://127.0.0.1:5500/projects/group-project1/2index.html?size=${size}`)
-}
+    // Host will need to be updated before deploying to GitPages
+    const host = "http://127.0.0.1:5500/projects/group-project1";
 
-// &good_with_dogs=${goodWithOtherDogs}
+    window.open(`${host}/2index.html?location=${zipCode}&age=${age}&size=${size}&gender=${gender}&good_with_dogs=${goodWithOtherDogs}&good_with_cats=${goodWithCats}&good_with_children=${goodWithChildren}`)
+}
 
 $("#search-form").on("submit", function(e){
     e.preventDefault()
