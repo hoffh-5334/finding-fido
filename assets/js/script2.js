@@ -65,7 +65,8 @@ const updateCard = function(){
     const descriptionEl = $("<p class='card-text'>").text(item.description);
     const genderEl = $("<li class='list-group-item'>").text(`Gender: ${item.gender}`);
     const breedEl = $("<li class='list-group-item'>").text(`Breed: ${item.breeds.primary}`);
-    const contactInfoDiv = $("<div class='d-flex flex-direction-column'>");
+    const contactInfoDivE = $("<div class=''>");
+    const contactInfoDivP = $("<div class=''>");
     const emailEl = $("<a class='card-link'>").text(`Email: ${item.contact.email}`).attr("href", `mailto:${item.contact.email}`)
     const phoneEl = $("<a class='card-link'>").text(item.contact.phone).attr("href", item.contact.phone)
 
@@ -73,7 +74,7 @@ const updateCard = function(){
     $("#card-wrapper").append(card);
     card.append(dogPhoto);
     card.append(cardBodyDisc);
-    card.append(cardBodyContact)
+    card.append(cardBodyContact);
 
     // Discription Components
     cardBodyDisc.append(dogName);
@@ -81,14 +82,17 @@ const updateCard = function(){
 
     // List elements
     card.append(infoList);
-    infoList.append(genderEl)
-    infoList.append(breedEl)
+    infoList.append(genderEl);
+    infoList.append(breedEl);
    
     // Contact list
     card.append(cardBodyContact);
-    cardBodyContact.append(contactInfoDiv);
-    contactInfoDiv.append(emailEl);
-    contactInfoDiv.append(phoneEl); 
+    cardBodyContact.append(contactInfoDivE);
+    cardBodyContact.append(contactInfoDivP);
+    contactInfoDivE.append(emailEl);
+    contactInfoDivP.append(phoneEl); 
+
+    
     
     // // old method
     // $(".card-img-top").attr("src", item.photos[0].small)
