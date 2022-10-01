@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <form class="container-fluid">
+    <form id="search-form" class="container-fluid">
         <div class="row">
             <div class="col-2">
                 <div class="wrapper">
@@ -53,7 +53,7 @@
                                         <option selected disabled value="">Choose...</option>
                                         <option value = "male">male</option>
                                         <option value ="female">female</option>
-                                        <option value = "unknown">no preference</option>
+                                        <option value = "null">no preference</option>
                                  </select>
                                     <label for="validationDefault04">Good with other dogs</label>
                                  <select class="custom-select" id="good-with-dogs">
@@ -85,12 +85,12 @@
     
         <!-- Page Content -->
         <div id="content">
+          <div id="search-header" class='nav justify-content-end col-12'></div>
           <div id="card-container" class="container">
             <div id="card-wrapper" class="row">
             </div>
           </div>
         </div>
-    
     </div>       
     
    <!-- Footer -->
