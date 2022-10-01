@@ -16,7 +16,7 @@ $("#search-form").on("submit", function (e) {
     // Host will need to be updated before deploying to GitPages
     const host = "http://127.0.0.1:5500/projects/group-project1/2index.html?";
 
-    // Filter out nulls and URLSearchParams object to create new URL
+    // Filter out nulls
     var newParams = Object.entries(paramObj).filter(item => {
         if (item[1] !== null && item[1] !== "null") {
             return item;
