@@ -3,7 +3,7 @@
   padding: 20px
 }
 
-img {
+#finding-fido-logo {
   max-width: 90%;
 }
 
@@ -15,20 +15,7 @@ img {
   /* Search Results Cards */
 .card {
   background-color: #92E0E4;
-  margin: 10px;
-}
-
-.container {
-  padding: 10px;
-}
-
-#card-wrapper {
-  
-}
-
-#card-container {
-  padding: 40px;
-  margin: 5px;
+  margin: 20px;
 }
 
 .card-title {
@@ -37,12 +24,11 @@ img {
 
 .card-link {
   font-size: small;
-  flex-direction: column;
+  
 }
 
 .card-body {
   font-family: Rubik;
-  padding: 5px;
 }
 
 .card-img-top {
@@ -53,7 +39,13 @@ img {
   background-color: #92E0E4;
 }
 
+/* Favorites Section */
 .footer {
-    background-color: aqua;
+    background-color: #92E0E4;
     padding-bottom: 200px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
 }

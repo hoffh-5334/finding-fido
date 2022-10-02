@@ -101,7 +101,7 @@ const clearCards = async function () {
 const updateCard = function () {
   searchResults.forEach(function (item) {
     // Card Component
-    const card = $("<div class='col-3 card'>");
+    const card = $("<div class='col-sm-12 col-md-5 col-lg-3 card'>");
     const cardBodyDisc = $("<div class='card-body'>");
     const infoList = $("<ul class='list-group list-group-flush'>");
     const cardBodyContact = $("<div class='card-body contact-info'>");
