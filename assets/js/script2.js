@@ -231,3 +231,4 @@ $("#search-form").on("submit", function (e) {
 //   return item[0] + "=" + item[1]
 // })
 // console.log(newTest.join("&"))
+
