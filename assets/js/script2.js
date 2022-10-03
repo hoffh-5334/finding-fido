@@ -126,6 +126,27 @@ const updateCard = function () {
     const favoriteButton = $("<div class='favArea'>");
     favButton.click((event) => saveFav(event, item))
 
+
+    // Favorite buttons -- made dynamic -- color and text change on click
+    favButton.on('click', function (event) {
+      //  saveFav(event, item);
+      //  favButton.text('unfavorite');
+      // $(this).toggleClass('fav-click')
+      // $(this).text($(this).text() == "Unfavorite" ? "Favorite" : "Unfavorite");
+      // $(this).toggle(function () {
+        if ($(this).text() === 'Favorite') {
+          saveFav(event, item);
+          $(this).text('Unfavorite');
+        }
+        else { 
+          removeFav(event, item)
+        $(this).text('Favorite');
+        }
+      // },
+      // )
+
+    });
+
     // Append Card Components
     $("#card-wrapper").append(card);
     card.append(dogPhoto);
