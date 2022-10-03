@@ -204,7 +204,7 @@ const saveFav = function (event, item) {
       image: `./assets/images/finding-fido-logo.png`,
     })
   }
-  localStorage.setItem(“favorites”, JSON.stringify(favorites))
+  localStorage.setItem('favorites', JSON.stringify(favorites))
   displayFav()
   console.log(item)
 }
