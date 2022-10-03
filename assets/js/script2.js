@@ -119,7 +119,25 @@ const updateCard = function () {
     const emailEl = $("<a class='card-link'>").text(`Email: ${item.contact.email}`).attr("href", `mailto:${item.contact.email}`)
     const phoneEl = $("<a class='card-link'>").text(item.contact.phone).attr("href", item.contact.phone)
     const favButton = $("<button class= 'fav'>").text("favorite")
-    favButton.click((event) => saveFav(event, item))
+    // favButton.click((event) => saveFav(event, item))
+
+    // Favorite buttons -- made dynamic -- color and text change on click
+    favButton.on('click', function(event) {
+      //  saveFav(event, item);
+      //  favButton.text('unfavorite');
+       $(this).toggleClass('fav-click')
+        $(this).text($(this).text()=="Unfavorite"?"Favorite":"Unfavorite");
+        $(this).toggle(function() {
+          saveFav(event, item);
+        }, function() {
+          trial()}
+        )
+        
+        });
+
+    function trial() {
+      console.log('hello')
+    }
 
     // Append Card Components
     $("#card-wrapper").append(card);

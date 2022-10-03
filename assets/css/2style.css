@@ -39,13 +39,33 @@
   background-color: #92E0E4;
 }
 
+/* Favorites Buttons */
+.fav {
+    background-color: rgb(255, 255, 255);
+
+}
+
+.fav-click {
+    background-color: rgb(246, 73, 177);
+}
+
 /* Favorites Section */
 .footer {
     background-color: #92E0E4;
-    padding-bottom: 200px;
+    padding-bottom: 100px;
 }
 
 .cards {
   display: flex;
   flex-wrap: wrap;
 }
+
+.dropdown-toggle {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /* width: 500px */
+    padding-top: 25px;
+    font-size: 25px;
+}
+
