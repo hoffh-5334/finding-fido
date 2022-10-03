@@ -113,7 +113,7 @@ const updateCard = function () {
       ? dogPhoto = $("<img class='card-img-top'>").attr("src", item.photos[0].full).attr("alt", "Image of dog")
       : dogPhoto = $("<img class='card-img-top'>").attr("src", "./assets/images/finding-fido-logo.png").attr("alt", "Finding Fido logo");
 
-    const dogName = $("<h5 class='card-title'>").text(item.name);
+    const dogName = $("<h5 class='card-title favDogName'>").text(item.name);
     let descriptionEl = $("<span>");
     item.description === null ? descriptionEl = $("<p class='card-text'>").text(`No info for ${item.name}.`) : descriptionEl = $("<p class='card-text'>").text(item.description);
     const genderEl = $("<li class='list-group-item'>").text(`Gender: ${item.gender}`);
@@ -183,7 +183,7 @@ const removeFav = function (event, item) {
   const favorites = JSON.parse(localStorage.getItem("favorites")) || []
  const elementIndex = favorites.findIndex(element => element === {
     name: item.name,
-    image: item.photos[0].medium,
+    image: item.photos.length ? item.photos[0].medium : `./assets/images/finding-fido-logo.png`,
   })
   favorites.splice(elementIndex, 1)
   localStorage.setItem("favorites", JSON.stringify(favorites))
@@ -199,7 +199,7 @@ const saveFav = function (event, item) {
   const favorites = JSON.parse(localStorage.getItem("favorites")) || []
   favorites.push({
     name: item.name,
-    image: item.photos[0].medium,
+    image: item.photos.length ? item.photos[0].medium : `./assets/images/finding-fido-logo.png`,
   })
   localStorage.setItem("favorites", JSON.stringify(favorites))
   displayFav()
