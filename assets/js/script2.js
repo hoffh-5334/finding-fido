@@ -242,3 +242,4 @@ $("#search-form").on("submit", function (e) {
 // })
 // console.log(newTest.join("&"))
 
+// console.log(newTest.join("&"))
