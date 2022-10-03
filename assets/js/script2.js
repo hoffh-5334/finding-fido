@@ -122,7 +122,7 @@ const updateCard = function () {
     const contactInfoDivP = $("<div class=''>");
     const emailEl = $("<a class='card-link'>").text(`Email: ${item.contact.email}`).attr("href", `mailto:${item.contact.email}`)
     const phoneEl = $("<a class='card-link'>").text(item.contact.phone).attr("href", item.contact.phone)
-    const favButton = $("<button class= 'favButton'>").text("favorite")
+    const favButton = $("<button class= 'favButton'>").text("Favorite")
     const favoriteButton = $("<div class='favArea'>");
     favButton.click((event) => saveFav(event, item));
 
