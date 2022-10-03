@@ -97,6 +97,8 @@
 }
 
 .favoritedDog{
+  display: flex;
+  align-items:center;
   background-color: #fff;
   padding: 20px;
 }

@@ -141,7 +141,8 @@ const updateCard = function () {
         $(this).text('Unfavorite');
       }
       else {
-        removeFav(event, item)
+        // removeFav(event, item)
+        unfavorite(event, item.id)
         $(this).text('Favorite');
       }
       // },
@@ -202,11 +203,13 @@ const saveFav = function (event, item) {
     favorites.push({
       name: item.name,
       image: item.photos.length ? item.photos[0].medium : `./assets/images/finding-fido-logo.png`,
+      id: item.id
     })
   } else {
     favorites.push({
       name: item.name,
       image: `./assets/images/finding-fido-logo.png`,
+      id: item.id
     })
   }
   localStorage.setItem('favorites', JSON.stringify(favorites))
@@ -225,6 +228,18 @@ const init = function () {
   }
 }
 
+//unfavorite Button for footer
+const unfavorite =function(event, dogId){
+console.log(event)
+const id = dogId || $(this).data("id")
+const favorites = JSON.parse(localStorage.getItem("favorites")) || []
+const updatedFavorites = favorites.filter(dog => dog.id !== id)
+localStorage.setItem('favorites', JSON.stringify(updatedFavorites))
+window.location.reload()
+
+console.log(id)
+}
+
 
 // pulls favorited dogs from local storage and displays them to favorites in footer
 const displayFav = function () {
@@ -238,9 +253,13 @@ const displayFav = function () {
     const card = $("<div class=' favoritedDog col-3 card'>");
     const dogName = $("<h5 class= 'favDogName'>").text(dog.name);
     const dogImage = $("<img class= 'favDogPic'>").attr("src", dog.image);
+    const unfavoriteButton = $("<button class = 'favButton'> Unfavorite</button>");
+    unfavoriteButton.data("id",dog.id)
+    unfavoriteButton.click(unfavorite)
     console.log(dogImage)
     card.append(dogName)
     card.append(dogImage)
+    card.append(unfavoriteButton)
     cards.append(card)
   })
 }
@@ -288,6 +307,4 @@ $("#search-form").on("submit", function (e) {
 // var newTest = testParam.map(item => {
 //   return item[0] + "=" + item[1]
 // })
-// console.log(newTest.join("&"))
-
 // console.log(newTest.join("&"))
