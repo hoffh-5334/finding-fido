@@ -122,36 +122,9 @@ const updateCard = function () {
     const contactInfoDivP = $("<div class=''>");
     const emailEl = $("<a class='card-link'>").text(`Email: ${item.contact.email}`).attr("href", `mailto:${item.contact.email}`)
     const phoneEl = $("<a class='card-link'>").text(item.contact.phone).attr("href", item.contact.phone)
-
-    const favButton = $("<button class= 'fav'>").text("Favorite")
-    // favButton.click((event) => saveFav(event, item))
-
-    // Favorite buttons -- made dynamic -- color and text change on click
-    favButton.on('click', function (event) {
-      //  saveFav(event, item);
-      //  favButton.text('unfavorite');
-      // $(this).toggleClass('fav-click')
-      // $(this).text($(this).text() == "Unfavorite" ? "Favorite" : "Unfavorite");
-      // $(this).toggle(function () {
-        if ($(this).text() === 'Favorite') {
-          saveFav(event, item);
-          $(this).text('Unfavorite');
-        }
-        else { 
-          removeFav(event, item)
-        $(this).text('Favorite');
-        }
-      // },
-      // )
-
-    });
-
-  
-
     const favButton = $("<button class= 'favButton'>").text("favorite")
     const favoriteButton = $("<div class='favArea'>");
     favButton.click((event) => saveFav(event, item))
-
 
     // Append Card Components
     $("#card-wrapper").append(card);
@@ -180,25 +153,7 @@ const updateCard = function () {
   })
 }
 
-
-  const removeFav = function (event, item) {
-    event.preventDefault()
-    const favorites = JSON.parse(localStorage.getItem("favorites")) || []
-   const elementIndex = favorites.findIndex(element => element === {
-      name: item.name,
-      image: item.photos[0].medium,
-    })
-    favorites.splice(elementIndex, 1)
-    localStorage.setItem("favorites", JSON.stringify(favorites))
-    displayFav()
-    console.log(item)
-  
-  }
-
-
-
 // takes favorited dogs and adds them to local storage
-
 const saveFav = function (event, item) {
   event.preventDefault()
   const favorites = JSON.parse(localStorage.getItem("favorites")) || []
