@@ -179,7 +179,7 @@ const removeFav = function (event, item) {
   const favorites = JSON.parse(localStorage.getItem("favorites")) || []
   const elementIndex = favorites.findIndex(element => element === {
     name: item.name,
-    image: item.photos[0].medium,
+    image: item.photos.length ? item.photos[0].medium : `./assets/images/finding-fido-logo.png`,
   })
   favorites.splice(elementIndex, 1)
   localStorage.setItem("favorites", JSON.stringify(favorites))
@@ -196,7 +196,7 @@ const saveFav = function (event, item) {
   if (item.photos.length) {
     favorites.push({
       name: item.name,
-      image: item.photos[0].medium,
+      image: item.photos.length ? item.photos[0].medium : `./assets/images/finding-fido-logo.png`,
     })
   } else {
     favorites.push({
