@@ -49,16 +49,6 @@
   background-color: #92E0E4;
 }
 
-
-/* Favorites Buttons */
-.fav {
-    background-color: rgb(255, 255, 255);
-
-}
-
-.fav-click {
-    background-color: rgb(246, 73, 177);
-
 /* favorite button styling */
 .favoriteDog{
   display: flex;
@@ -76,32 +66,17 @@
   background-color: #dc3545;
   border-color: #dc3545;
   border-radius: .3rem;
-
 }
 
 /* Favorites Section */
 .footer {
     background-color: #92E0E4;
-    padding-bottom: 100px;
+    padding-bottom: 200px;
 }
 
 .cards {
   display: flex;
   flex-wrap: wrap;
-
-}
-
-.dropdown-toggle {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    /* width: 500px */
-    padding-top: 25px;
-    font-size: 25px;
-}
-
-
   align-items: center;
   justify-content: center;
 }
-
