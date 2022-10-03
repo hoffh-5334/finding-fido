@@ -19,7 +19,7 @@ const getData = async function () {
   };
   const response = await fetch("https://api.petfinder.com/v2/oauth2/token", options);
   const token = await response.json();
-  const searchRes = await fetch(`https://api.petfinder.com/v2/animals${window.location.search}&type=dog&page=1&`, {
+  const searchRes = await fetch(`https://api.petfinder.com/v2/animals${window.location.search}&type=dog`, {
     headers: {
       Authorization: `Bearer ${token.access_token}`,
     },
@@ -75,7 +75,7 @@ const renderSearchBar = function () {
     boxShadow: "0px 0px 5px 2px rgba(0,0,0,.1)",
     gap: "1rem",
     padding: "1rem",
-    margin: "1rem"
+    margin: "1rem 0"
   })
   renderElement("<div>", `Results: ${0}`, ["id", "total-count"], "#search-header")
 
@@ -108,7 +108,10 @@ const updateCard = function () {
 
     // Search data components
     let dogPhoto = $("<span>");
-    item.photos.length ? dogPhoto = $("<img class='card-img-top'>").attr("src", item.photos[0].full) : dogPhoto = $("<img class='card-img-top'>").attr("src", "./assets/images/finding-fido-logo.png");
+    item.photos.length
+      ? dogPhoto = $("<img class='card-img-top'>").attr("src", item.photos[0].full).attr("alt", "Image of dog")
+      : dogPhoto = $("<img class='card-img-top'>").attr("src", "./assets/images/finding-fido-logo.png").attr("alt", "Finding Fido logo");
+
     const dogName = $("<h5 class='card-title'>").text(item.name);
     let descriptionEl = $("<span>");
     item.description === null ? descriptionEl = $("<p class='card-text'>").text(`No info for ${item.name}.`) : descriptionEl = $("<p class='card-text'>").text(item.description);
