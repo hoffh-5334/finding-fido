@@ -124,7 +124,7 @@ const updateCard = function () {
     const phoneEl = $("<a class='card-link'>").text(item.contact.phone).attr("href", item.contact.phone)
     const favButton = $("<button class= 'favButton'>").text("favorite")
     const favoriteButton = $("<div class='favArea'>");
-    favButton.click((event) => saveFav(event, item))
+    favButton.click((event) => saveFav(event, item));
 
 
     // Favorite buttons -- made dynamic -- color and text change on click
@@ -173,6 +173,21 @@ const updateCard = function () {
     favoriteButton.append(favButton);
   })
 }
+
+const removeFav = function (event, item) {
+  event.preventDefault()
+  const favorites = JSON.parse(localStorage.getItem("favorites")) || []
+ const elementIndex = favorites.findIndex(element => element === {
+    name: item.name,
+    image: item.photos[0].medium,
+  })
+  favorites.splice(elementIndex, 1)
+  localStorage.setItem("favorites", JSON.stringify(favorites))
+  displayFav()
+  console.log(item)
+
+}
+
 
 // takes favorited dogs and adds them to local storage
 const saveFav = function (event, item) {
