@@ -19,7 +19,7 @@ const getData = async function () {
   };
   const response = await fetch("https://api.petfinder.com/v2/oauth2/token", options);
   const token = await response.json();
-  const searchRes = await fetch(`https://api.petfinder.com/v2/animals${window.location.search}&type=dog&page=1&`, {
+  const searchRes = await fetch(`https://api.petfinder.com/v2/animals${window.location.search}&type=dog`, {
     headers: {
       Authorization: `Bearer ${token.access_token}`,
     },
@@ -75,7 +75,7 @@ const renderSearchBar = function () {
     boxShadow: "0px 0px 5px 2px rgba(0,0,0,.1)",
     gap: "1rem",
     padding: "1rem",
-    margin: "1rem"
+    margin: "1rem 0"
   })
   renderElement("<div>", `Results: ${0}`, ["id", "total-count"], "#search-header")
 
@@ -105,10 +105,14 @@ const updateCard = function () {
     const cardBodyDisc = $("<div class='card-body'>");
     const infoList = $("<ul class='list-group list-group-flush'>");
     const cardBodyContact = $("<div class='card-body contact-info'>");
+    const favoriteArea = $("<div class='card-body favoriteDog'>");
 
     // Search data components
     let dogPhoto = $("<span>");
-    item.photos.length ? dogPhoto = $("<img class='card-img-top'>").attr("src", item.photos[0].full) : dogPhoto = $("<img class='card-img-top'>").attr("src", "./assets/images/finding-fido-logo.png");
+    item.photos.length
+      ? dogPhoto = $("<img class='card-img-top'>").attr("src", item.photos[0].full).attr("alt", "Image of dog")
+      : dogPhoto = $("<img class='card-img-top'>").attr("src", "./assets/images/finding-fido-logo.png").attr("alt", "Finding Fido logo");
+
     const dogName = $("<h5 class='card-title'>").text(item.name);
     let descriptionEl = $("<span>");
     item.description === null ? descriptionEl = $("<p class='card-text'>").text(`No info for ${item.name}.`) : descriptionEl = $("<p class='card-text'>").text(item.description);
@@ -118,6 +122,7 @@ const updateCard = function () {
     const contactInfoDivP = $("<div class=''>");
     const emailEl = $("<a class='card-link'>").text(`Email: ${item.contact.email}`).attr("href", `mailto:${item.contact.email}`)
     const phoneEl = $("<a class='card-link'>").text(item.contact.phone).attr("href", item.contact.phone)
+
     const favButton = $("<button class= 'fav'>").text("Favorite")
     // favButton.click((event) => saveFav(event, item))
 
@@ -142,11 +147,18 @@ const updateCard = function () {
     });
 
   
+
+    const favButton = $("<button class= 'favButton'>").text("favorite")
+    const favoriteButton = $("<div class='favArea'>");
+    favButton.click((event) => saveFav(event, item))
+
+
     // Append Card Components
     $("#card-wrapper").append(card);
     card.append(dogPhoto);
     card.append(cardBodyDisc);
     card.append(cardBodyContact);
+    card.append(favoriteArea)
 
     // Discription Components
     cardBodyDisc.append(dogName);
@@ -163,9 +175,11 @@ const updateCard = function () {
     cardBodyContact.append(contactInfoDivP);
     contactInfoDivE.append(emailEl);
     contactInfoDivP.append(phoneEl);
-    contactInfoDivP.append(favButton);
+    favoriteArea.append(favoriteButton);
+    favoriteButton.append(favButton);
   })
 }
+
 
   const removeFav = function (event, item) {
     event.preventDefault()
@@ -181,6 +195,9 @@ const updateCard = function () {
   
   }
 
+
+
+// takes favorited dogs and adds them to local storage
 
 const saveFav = function (event, item) {
   event.preventDefault()
@@ -206,6 +223,8 @@ const init = function () {
   }
 }
 
+
+// pulls favorited dogs from local storage and displays them to favorites in footer
 const displayFav = function () {
   const favorites = JSON.parse(localStorage.getItem("favorites")) || []
   console.log(favorites)
@@ -213,7 +232,7 @@ const displayFav = function () {
   cards.empty()
   favorites.forEach(dog => {
     console.log(dog.image)
-    const card = $("<div class='col-3 card'>");
+    const card = $("<div class=' favoritedDog col-3 card'>");
     const dogName = $("<h5>").text(dog.name);
     const dogImage = $("<img>").attr("src", dog.image);
     console.log(dogImage)
@@ -267,3 +286,4 @@ $("#search-form").on("submit", function (e) {
 //   return item[0] + "=" + item[1]
 // })
 // console.log(newTest.join("&"))
+

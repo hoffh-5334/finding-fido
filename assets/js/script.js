@@ -34,3 +34,16 @@ $("#search-form").on("submit", function (e) {
     // Open new page with search params
     window.open(newURL, "_self");
 })
+
+// Animations
+gsap.from("#finding-fido-logo", { 
+    duration: 2,
+    x:-200,
+  });
+
+  gsap.to("#find-fido-button", { 
+    rotation: 360,
+    duration: 1,
+    repeat: 1,
+    repeatDelay: 1,
+  });

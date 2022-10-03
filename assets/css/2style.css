@@ -1,6 +1,6 @@
 /* Sidebar Search Area */
 #sidebar {
-  padding: 20px
+  padding: 20px;
 }
 
 #finding-fido-logo {
@@ -8,14 +8,21 @@
 }
 
 #find-fido-button {
-    margin-left: 15%;
-    margin-top: 10%;
+    margin: 1rem; 
   }
+
+#search-header {
+    background-color: "#fff";
+    box-shadow: "0px 0px 5px 2px rgba(0,0,0,.1)";
+    padding: "1rem 0px";
+}
 
   /* Search Results Cards */
 .card {
   background-color: #92E0E4;
   margin: 20px;
+  min-width: 285px;
+  max-width: 285px;
 }
 
 .card-title {
@@ -33,11 +40,15 @@
 
 .card-img-top {
   padding-top: 10px;
+  width: 250px;
+  height: 250px;
+  object-fit: cover; 
 }
 
 .list-group-item {
   background-color: #92E0E4;
 }
+
 
 /* Favorites Buttons */
 .fav {
@@ -47,6 +58,25 @@
 
 .fav-click {
     background-color: rgb(246, 73, 177);
+
+/* favorite button styling */
+.favoriteDog{
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+/* .favArea {
+  display: flex;
+  justify-content: center;
+} */
+
+.favButton{
+  color: #fff;
+  background-color: #dc3545;
+  border-color: #dc3545;
+  border-radius: .3rem;
+
 }
 
 /* Favorites Section */
@@ -58,6 +88,7 @@
 .cards {
   display: flex;
   flex-wrap: wrap;
+
 }
 
 .dropdown-toggle {
@@ -67,5 +98,10 @@
     /* width: 500px */
     padding-top: 25px;
     font-size: 25px;
+}
+
+
+  align-items: center;
+  justify-content: center;
 }
 
