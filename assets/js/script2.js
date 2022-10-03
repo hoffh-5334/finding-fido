@@ -105,7 +105,7 @@ const updateCard = function () {
     const cardBodyDisc = $("<div class='card-body'>");
     const infoList = $("<ul class='list-group list-group-flush'>");
     const cardBodyContact = $("<div class='card-body contact-info'>");
-    const favoriteArea = $("<div class='card-body favoriteDog'>");
+    const favoriteArea = $("<div class= 'card-body favoriteDog'>");
 
     // Search data components
     let dogPhoto = $("<span>");
@@ -118,10 +118,12 @@ const updateCard = function () {
     item.description === null ? descriptionEl = $("<p class='card-text'>").text(`No info for ${item.name}.`) : descriptionEl = $("<p class='card-text'>").text(item.description);
     const genderEl = $("<li class='list-group-item'>").text(`Gender: ${item.gender}`);
     const breedEl = $("<li class='list-group-item'>").text(`Breed: ${item.breeds.primary}`);
-    const contactInfoDivE = $("<div class=''>");
-    const contactInfoDivP = $("<div class=''>");
-    const emailEl = $("<a class='card-link'>").text(`Email: ${item.contact.email}`).attr("href", `mailto:${item.contact.email}`)
-    const phoneEl = $("<a class='card-link'>").text(item.contact.phone).attr("href", item.contact.phone)
+    // const contactInfoDivE = $("<div class=''>");
+    // const contactInfoDivP = $("<div class=''>");
+    const contactInfoSite = $("<div class='more-info'>");
+    // const emailEl = $("<a class='card-link'>").text(`Email: ${item.contact.email}`).attr("href", `mailto:${item.contact.email}`)
+    // const phoneEl = $("<a class='card-link'>").text(item.contact.phone).attr("href", item.contact.phone)
+    const moreInfo = $("<a class='moreInfo card-link'>").text("More Info").attr("href", item.url)
     const favButton = $("<button class= 'favButton'>").text("Favorite")
     const favoriteButton = $("<div class='favArea'>");
     // favButton.click((event) => saveFav(event, item));
@@ -152,7 +154,7 @@ const updateCard = function () {
     card.append(dogPhoto);
     card.append(cardBodyDisc);
     card.append(cardBodyContact);
-    card.append(favoriteArea)
+
 
     // Discription Components
     cardBodyDisc.append(dogName);
@@ -165,10 +167,13 @@ const updateCard = function () {
 
     // Contact list
     card.append(cardBodyContact);
-    cardBodyContact.append(contactInfoDivE);
-    cardBodyContact.append(contactInfoDivP);
-    contactInfoDivE.append(emailEl);
-    contactInfoDivP.append(phoneEl);
+    cardBodyContact.append(contactInfoSite);
+    // cardBodyContact.append(contactInfoDivE);
+    // cardBodyContact.append(contactInfoDivP);
+    // contactInfoDivE.append(emailEl);
+    // contactInfoDivP.append(phoneEl);
+    contactInfoSite.append(moreInfo);
+    card.append(favoriteArea);
     favoriteArea.append(favoriteButton);
     favoriteButton.append(favButton);
   })
@@ -231,8 +236,8 @@ const displayFav = function () {
   favorites.forEach(dog => {
     console.log(dog.image)
     const card = $("<div class=' favoritedDog col-3 card'>");
-    const dogName = $("<h5>").text(dog.name);
-    const dogImage = $("<img>").attr("src", dog.image);
+    const dogName = $("<h5 class= 'favDogName'>").text(dog.name);
+    const dogImage = $("<img class= 'favDogPic'>").attr("src", dog.image);
     console.log(dogImage)
     card.append(dogName)
     card.append(dogImage)
