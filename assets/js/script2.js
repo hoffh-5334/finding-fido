@@ -105,6 +105,7 @@ const updateCard = function () {
     const cardBodyDisc = $("<div class='card-body'>");
     const infoList = $("<ul class='list-group list-group-flush'>");
     const cardBodyContact = $("<div class='card-body contact-info'>");
+    const favoriteArea = $("<div class='card-body favoriteDog'>");
 
     // Search data components
     let dogPhoto = $("<span>");
@@ -121,7 +122,8 @@ const updateCard = function () {
     const contactInfoDivP = $("<div class=''>");
     const emailEl = $("<a class='card-link'>").text(`Email: ${item.contact.email}`).attr("href", `mailto:${item.contact.email}`)
     const phoneEl = $("<a class='card-link'>").text(item.contact.phone).attr("href", item.contact.phone)
-    const favButton = $("<button class= 'fav'>").text("favorite")
+    const favButton = $("<button class= 'favButton'>").text("favorite")
+    const favoriteButton = $("<div class='favArea'>");
     favButton.click((event) => saveFav(event, item))
 
     // Append Card Components
@@ -129,6 +131,7 @@ const updateCard = function () {
     card.append(dogPhoto);
     card.append(cardBodyDisc);
     card.append(cardBodyContact);
+    card.append(favoriteArea)
 
     // Discription Components
     cardBodyDisc.append(dogName);
@@ -145,10 +148,12 @@ const updateCard = function () {
     cardBodyContact.append(contactInfoDivP);
     contactInfoDivE.append(emailEl);
     contactInfoDivP.append(phoneEl);
-    contactInfoDivP.append(favButton);
+    favoriteArea.append(favoriteButton);
+    favoriteButton.append(favButton);
   })
 }
 
+// takes favorited dogs and adds them to local storage
 const saveFav = function (event, item) {
   event.preventDefault()
   const favorites = JSON.parse(localStorage.getItem("favorites")) || []
@@ -173,6 +178,8 @@ const init = function () {
   }
 }
 
+
+// pulls favorited dogs from local storage and displays them to favorites in footer
 const displayFav = function () {
   const favorites = JSON.parse(localStorage.getItem("favorites")) || []
   console.log(favorites)
@@ -180,7 +187,7 @@ const displayFav = function () {
   cards.empty()
   favorites.forEach(dog => {
     console.log(dog.image)
-    const card = $("<div class='col-3 card'>");
+    const card = $("<div class=' favoritedDog col-3 card'>");
     const dogName = $("<h5>").text(dog.name);
     const dogImage = $("<img>").attr("src", dog.image);
     console.log(dogImage)
