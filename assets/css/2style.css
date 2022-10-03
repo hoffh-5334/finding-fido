@@ -56,10 +56,10 @@
   justify-content: center;
 }
 
-/* .favArea {
-  display: flex;
-  justify-content: center;
-} */
+.favoritedDog{
+  background-color: white;
+  padding: 20px;
+}
 
 .favButton{
   color: #fff;

@@ -124,7 +124,7 @@ const updateCard = function () {
     const phoneEl = $("<a class='card-link'>").text(item.contact.phone).attr("href", item.contact.phone)
     const favButton = $("<button class= 'favButton'>").text("Favorite")
     const favoriteButton = $("<div class='favArea'>");
-    favButton.click((event) => saveFav(event, item));
+  
 
 
     // Favorite buttons -- made dynamic -- color and text change on click
@@ -169,10 +169,14 @@ const updateCard = function () {
     cardBodyContact.append(contactInfoDivP);
     contactInfoDivE.append(emailEl);
     contactInfoDivP.append(phoneEl);
+
+    // Favorite Button
     favoriteArea.append(favoriteButton);
     favoriteButton.append(favButton);
+
   })
 }
+
 
 const removeFav = function (event, item) {
   event.preventDefault()
