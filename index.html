@@ -17,113 +17,109 @@
     <link rel="stylesheet" href="./assets/css/style.css"/>
 
   </head>
-  
+  <body>
     <!-- Header -->
-    <div class="container">
+    <main class="container">
       <header class="row">
         <div class="col-12">
-          <img id="finding-fido-logo" src="./assets/images/finding-fido-logo.png" alt="Finding Fido logo with happy dog"/>
-            <h4>Your new best friend is only a few clicks away!</h4>
+          <img
+            id="finding-fido-logo"
+            src="./assets/images/finding-fido-logo.png"
+            alt="Finding Fido logo with happy dog"
+          />
+          <h4>Your new best friend is only a few clicks away!</h4>
         </div>
       </header>
-        
-  <body>
-    <form class="container" id="search-form">
+      <form class="container" id="search-form">
         <!-- User Entry - Location -->
-          <div class="row"> 
-            <div class="col-12">
-              <h3>Where are you located?</h3>
-            </div>
+        <div class="row">
+          <div class="col-12">
+            <h3>Where are you located?</h3>
           </div>
-
-          <div class="row"> 
-            <div class="col-12">
-              <label>Please enter your zip code.</label>
-            </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <label>Please enter your zip code.</label>
           </div>
-
-          <div class="row"> 
-            <div class="col-12">
-              <input type="text" class="form-control" id="zip-code" required>
-            </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <input type="text" class="form-control" id="zip-code" required />
           </div>
-          
-          <!-- User Entry - Search Parameters -->
-          <div id="future-dog-header">
-            <h3>What are you looking for in your future dog?</h3>
+        </div>
+        <!-- User Entry - Search Parameters -->
+        <div id="future-dog-header">
+          <h3>What are you looking for in your future dog?</h3>
+        </div>
+        <!-- Age -->
+        <div class="row">
+          <div class="col-4">
+            <label for="validationDefault04">Age</label>
+            <select class="custom-select" id="age-input">
+              <option selected disabled value="">Choose...</option>
+              <option value="baby">puppy</option>
+              <option value="young">young</option>
+              <option value="adult">adult</option>
+              <option value="senior">senior</option>
+            </select>
           </div>
-            <!-- Age -->
-            <div class="row">
-              <div class="col-4">
-                <label for="validationDefault04">Age</label>
-                <select class="custom-select" id="age-input">
-                  <option selected disabled value="">Choose...</option>
-                  <option value = "baby">puppy</option>
-                  <option value = "young">young</option>
-                  <option value = "adult">adult</option>
-                  <option value = "senior">senior</option>
-                </select>
-              </div>
-              <!-- Size -->
-              <div class="col-4">
-                <label for="validationDefault04">Size</label>
-                <select class="custom-select" id="size-input">
-                  <option selected disabled value="">Choose...</option>
-                  <option value="small">small</option>
-                  <option value="medium">medium</option>
-                  <option value="large">large</option>
-                  <option value="xlarge">xlarge</option>
-                </select>
-              </div>
-              <!-- Gender -->
-              <div class="col-4">
-                <label for="validationDefault04">Gender</label>
-                <select class="custom-select" id="gender-input">
-                  <option selected disabled value="">Choose...</option>
-                  <option value = "male">male</option>
-                  <option value ="female">female</option>
-                  <option value = "null">no preference</option>
-                </select>
-              </div>
-
-
-
+          <!-- Size -->
+          <div class="col-4">
+            <label for="validationDefault04">Size</label>
+            <select class="custom-select" id="size-input">
+              <option selected disabled value="">Choose...</option>
+              <option value="small">small</option>
+              <option value="medium">medium</option>
+              <option value="large">large</option>
+              <option value="xlarge">xlarge</option>
+            </select>
           </div>
-            <!-- Good with dogs? -->
-            <div class="row">
-              <div class="col-4" id="good-with-section">
-                <label for="validationDefault04">Good with other dogs</label>
-                <select class="custom-select" id="good-with-dogs">
-                  <option selected disabled value="">Choose...</option>
-                  <option value="true">yes</option>
-                  <option value="false" >no preference</option>
-                </select>
-              </div>
-              <!-- Good with cats? -->
-              <div class="col-4" id="good-with-section">
-                <label for="validationDefault04">Good with cats</label>
-                <select class="custom-select" id="good-with-cats">
-                  <option selected disabled value="">Choose...</option>
-                  <option value = "true">yes</option>
-                  <option value = "false">no preference</option>
-                </select>
-              </div>
-              <!-- Good with children? -->
-              <div class="col-4" id="good-with-section">
-                <label for="validationDefault04">Good with children</label>
-                <select class="custom-select" id="good-with-children">
-                  <option selected disabled value="">Choose...</option>
-                  <option value = "true">yes</option>
-                  <option value = "false">no preference</option>
-                </select>
-              </div>
-              <!-- Search Button -->
-              <button class="btn btn-danger btn-lg" id="find-fido-button" type="submit">Find Fido!</button>
-            </div>
-          
-    </form>
-
-    <!-- Other Options Section -->
+          <!-- Gender -->
+          <div class="col-4">
+            <label for="validationDefault04">Gender</label>
+            <select class="custom-select" id="gender-input">
+              <option selected disabled value="">Choose...</option>
+              <option value="male">male</option>
+              <option value="female">female</option>
+              <option value="null">no preference</option>
+            </select>
+          </div>
+        </div>
+        <!-- Good with dogs? -->
+        <div class="row">
+          <div class="col-4" id="good-with-section">
+            <label for="validationDefault04">Good with other dogs</label>
+            <select class="custom-select" id="good-with-dogs">
+              <option selected disabled value="">Choose...</option>
+              <option value="true">yes</option>
+              <option value="false">no preference</option>
+            </select>
+          </div>          
+          <!-- Good with cats? -->
+          <div class="col-4" id="good-with-section">
+            <label for="validationDefault04">Good with cats</label>
+            <select class="custom-select" id="good-with-cats">
+              <option selected disabled value="">Choose...</option>
+              <option value="true">yes</option>
+              <option value="false">no preference</option>
+            </select>
+          </div>
+          <!-- Good with children? -->
+          <div class="col-4" id="good-with-section">
+            <label for="validationDefault04">Good with children</label>
+            <select class="custom-select" id="good-with-children">
+              <option selected disabled value="">Choose...</option>
+              <option value="true">yes</option>
+              <option value="false">no preference</option>
+            </select>
+          </div>
+          <!-- Search Button -->
+          <button class="btn btn-danger btn-lg" id="find-fido-button" type="submit">
+            Find Fido!
+          </button>
+        </div>
+      </form>
+          <!-- Other Options Section -->
     <section class="col-12" id="otherOptions">
       <h3>Not ready to adopt?</h3>
       <h4>There are other ways you can help dogs in need.</h4>
@@ -141,18 +137,15 @@
           <p>Make a donation to the Humane Society of the United States.</p>
         <div class="padding-bottom"></div>
     </section>
-    
     </div>
   </div>
-
+</main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.2/gsap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+      crossorigin="anonymous"></script>
     <script src="./assets/js/script.js"></script>
   </body>
 </html>

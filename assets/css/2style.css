@@ -77,6 +77,28 @@
   border-radius: .3rem;
 }
 
+#top-screen-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 1;
+  color: #78bcbf;
+  padding: 5px;
+  background-color: #fff;
+  border: 2px solid #78bcbf;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: 150ms ease-in-out;
+}
+
+#top-screen-btn:hover{
+  color: #fff ;
+  background-color: #78bcbf;
+}
+
 /* Favorites Section */
 .footer {
   background-color: #92E0E4;
