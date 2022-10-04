@@ -49,7 +49,7 @@ const getData = async function () {
     } else {
       console.log("No data returned for filter option");
       showAlert("No results");
-      $("card-wrapper").empty();
+      $("#card-wrapper").empty();
     }
   } else {
     console.log(searchRes)
