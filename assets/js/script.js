@@ -14,8 +14,8 @@ $("#search-form").on("submit", function (e) {
     }
 
     // Host will need to be updated before deploying to GitPages
-    const host = "http://127.0.0.1:5500/projects/group-project1/2index.html?";
-    // const host = "https://hoffh-5334.github.io/finding-fido/2index.html?";
+    // const host = "http://127.0.0.1:5500/projects/group-project1/2index.html?";
+    const host = "https://hoffh-5334.github.io/finding-fido/2index.html?";
 
 
     // Filter out nulls
