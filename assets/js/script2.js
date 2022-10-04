@@ -123,7 +123,7 @@ const updateCard = function () {
     const contactInfoSite = $("<div class='more-info'>");
     // const emailEl = $("<a class='card-link'>").text(`Email: ${item.contact.email}`).attr("href", `mailto:${item.contact.email}`)
     // const phoneEl = $("<a class='card-link'>").text(item.contact.phone).attr("href", item.contact.phone)
-    const moreInfo = $("<a class='moreInfo card-link'>").text("More Info").attr("href", item.url)
+    const moreInfo = $("<a class='moreInfo card-link'>").text("More Info").attr("href", item.url).attr('target', '_blank')
     const favButton = $("<button class= 'favButton'>").text("Favorite")
     const favoriteButton = $("<div class='favArea'>");
     // favButton.click((event) => saveFav(event, item));
