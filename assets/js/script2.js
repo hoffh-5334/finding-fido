@@ -47,7 +47,9 @@ const getData = async function () {
       updateCard();
 
     } else {
-      console.log("No data returned for filter option")
+      console.log("No data returned for filter option");
+      showAlert("No results");
+      $("card-wrapper").empty();
     }
   } else {
     console.log(searchRes)
