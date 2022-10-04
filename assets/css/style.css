@@ -23,6 +23,14 @@ form {
   text-align: center;
 }
 
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+  justify-content: center;
+}
+
 #zip-code {
   width: 20%; 
   margin-left: 40%;
@@ -41,7 +49,7 @@ label {
 }
 
 #find-fido-button {
-  margin-left: 43%;
+  /* margin-left: 43%; */
   margin-top: 5%;
 }
 
