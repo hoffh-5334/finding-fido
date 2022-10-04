@@ -23,7 +23,7 @@ $("#search-form").on("submit", function (e) {
         }
     })
 
-    // Parse and clean new parameters for the url
+    // Join each key value pair and return a valid URL with params
     var paramString = newParams.map(item => {
         return item[0] + "=" + item[1]
     }).join("&");
@@ -36,14 +36,14 @@ $("#search-form").on("submit", function (e) {
 })
 
 // Animations
-gsap.from("#finding-fido-logo", { 
+gsap.from("#finding-fido-logo", {
     duration: 2,
-    x:-200,
-  });
+    x: -200,
+});
 
-  gsap.to("#find-fido-button", { 
+gsap.to("#find-fido-button", {
     rotation: 360,
     duration: 1,
     repeat: 1,
     repeatDelay: 1,
-  });
+});

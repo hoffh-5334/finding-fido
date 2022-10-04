@@ -180,6 +180,51 @@ const updateCard = function () {
   })
 }
 
+/**
+ * Displays an alert with custom message for 5 seconds
+ * @param {string} message: Message to be displayed in the alert
+ */
+const showAlert = function (message) {
+  var timer = 5;
+  if ($("#alert").length) {
+    return;
+  };
+  renderElement("<div class='alert alert-light'>", message, ["id", "alert"], "#main")
+  $("#alert").css({
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    position: "fixed",
+    bottom: 0,
+    right: "50%",
+    margin: "1rem 0px",
+    border: "1px solid black",
+    zIndex: 2,
+    gap: ".5rem",
+  })
+    .attr("role", "alert")
+    .append($("<span class='material-symbols-outlined'>")
+      .text("done"));
+
+  // Animate 
+  gsap.from("#alert", {
+    duration: .5,
+    y: 200,
+  });
+
+  const startTimer = setInterval(function () {
+    timer--
+    if (timer <= 0) {
+      gsap.from("#alert", {
+        duration: .5,
+        y: 200,
+      });
+      $("#alert").remove();
+      clearInterval(startTimer);
+    }
+  }, 1000)
+}
+
 const removeFav = function (event, item) {
   event.preventDefault()
   const favorites = JSON.parse(localStorage.getItem("favorites")) || []
@@ -214,6 +259,7 @@ const saveFav = function (event, item) {
   }
   localStorage.setItem('favorites', JSON.stringify(favorites))
   displayFav()
+  showAlert("Added to Favorites");
   console.log(item)
 }
 // Run at start
@@ -229,15 +275,14 @@ const init = function () {
 }
 
 //unfavorite Button for footer
-const unfavorite =function(event, dogId){
-console.log(event)
-const id = dogId || $(this).data("id")
-const favorites = JSON.parse(localStorage.getItem("favorites")) || []
-const updatedFavorites = favorites.filter(dog => dog.id !== id)
-localStorage.setItem('favorites', JSON.stringify(updatedFavorites))
-window.location.reload()
-
-console.log(id)
+const unfavorite = function (event, dogId) {
+  console.log(event)
+  const id = dogId || $(this).data("id")
+  const favorites = JSON.parse(localStorage.getItem("favorites")) || []
+  const updatedFavorites = favorites.filter(dog => dog.id !== id)
+  localStorage.setItem('favorites', JSON.stringify(updatedFavorites))
+  window.location.reload()
+  console.log(id)
 }
 
 
@@ -254,7 +299,7 @@ const displayFav = function () {
     const dogName = $("<h5 class= 'favDogName'>").text(dog.name);
     const dogImage = $("<img class= 'favDogPic'>").attr("src", dog.image);
     const unfavoriteButton = $("<button class = 'favButton'> Unfavorite</button>");
-    unfavoriteButton.data("id",dog.id)
+    unfavoriteButton.data("id", dog.id)
     unfavoriteButton.click(unfavorite)
     console.log(dogImage)
     card.append(dogName)
@@ -281,14 +326,14 @@ $("#search-form").on("submit", function (e) {
     good_with_children: $("#good-with-children").val()
   }
 
-  // Filter out nulls and URLSearchParams object to create new URL
+  // Filter out null values
   var newParams = Object.entries(paramObj).filter(item => {
     if (item[1] !== null && item[1] !== "null") {
       return item;
     }
   })
 
-  // Parse and clean new parameters for the url
+  // Join each key value pair and return a valid URL with params
   var paramString = newParams.map(item => {
     return item[0] + "=" + item[1]
   }).join("&");
@@ -299,12 +344,3 @@ $("#search-form").on("submit", function (e) {
   // Run search api
   getData();
 });
-
-// // Save for testing with multiple params. Can delete later
-// const testParam = [['location', '55418'], ['age', 'young'], ['gender', 'female'], ['good_with_dogs', 'true'], ['breeds', 'pug,samoyed']]
-// console.log(testParam)
-
-// var newTest = testParam.map(item => {
-//   return item[0] + "=" + item[1]
-// })
-// console.log(newTest.join("&"))
