@@ -45,4 +45,21 @@ label {
   margin-top: 5%;
 }
 
+/* Other Options Section */
+#otherOptions {
+  text-align: center;
+  padding-top: 2rem;
+}
 
+h3 {
+  font-weight: bold;
+}
+
+.fa-paw, .fa-bone {
+  color: #D11600;
+  padding: 2rem;
+}
+
+.padding-bottom {
+  padding: 1rem;
+}
