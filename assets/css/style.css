@@ -23,7 +23,7 @@ form {
   text-align: center;
 }
 
-.row {
+.fixButton {
   display: flex;
   flex-wrap: wrap;
   margin-right: -15px;
